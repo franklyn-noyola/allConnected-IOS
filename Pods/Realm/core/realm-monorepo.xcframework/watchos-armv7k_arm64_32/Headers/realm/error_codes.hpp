@@ -1,6 +1,6 @@
 /*************************************************************************
  *
- * Copyright 2016 Realm Inc.
+ * Copyright 2021 Realm Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,20 +16,28 @@
  *
  **************************************************************************/
 
-#ifndef REALM_HISTORY_HPP
-#define REALM_HISTORY_HPP
+#pragma once
 
-#include <memory>
-#include <string>
-
-#include <realm/replication.hpp>
-
+#include <realm/string_data.hpp>
 
 namespace realm {
 
-std::unique_ptr<Replication> make_in_realm_history(const std::string& realm_path);
+/*
+ * TODO As part of RCORE-720, we'll move all the exception types and error codes we want to expose in the
+ * public API here so that each one has a unique error code. For now though, this is here to complete the
+ * API of Status/StatusWith.
+ */
+class ErrorCodes {
+public:
+    enum Error : int32_t {
+        OK = 0,
+        UnknownError = 1,
+        RuntimeError = 2,
+        LogicError = 3,
+        BrokenPromise = 4,
+    };
+
+    static StringData error_string(Error code);
+};
 
 } // namespace realm
-
-
-#endif // REALM_HISTORY_HPP
