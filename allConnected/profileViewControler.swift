@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import SwiftUI
 
 class profileViewControler: UIViewController, UISearchBarDelegate {
 
@@ -179,12 +180,20 @@ class profileViewControler: UIViewController, UISearchBarDelegate {
         }
     }
     
-    
+    var backgroundView: UIImageView = {
+        let backgroundView = UIImageView (frame: UIScreen.main.bounds)
+        backgroundView.contentMode = .scaleAspectFit
+        backgroundView.translatesAutoresizingMaskIntoConstraints = true
+        backgroundView.image = UIImage(named: "background")
+        return backgroundView
+    }()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBarController?.tabBar.isHidden = false
+        self.navigationController?.navigationBar.backgroundColor = UIColor.white
+        self.tabBarController?.tabBar.backgroundColor = UIColor.white
         self.searchUser.delegate = self
        let tabController = self.storyboard?.instantiateViewController(identifier: "contactView") as! contactView
         tabController.plateName = plateName
@@ -197,11 +206,16 @@ class profileViewControler: UIViewController, UISearchBarDelegate {
         configUserFields()
         searchButton.setTitle(searchUserText, for: UIControl.State.normal)
         searchButton.layer.cornerRadius = 8
-        let backgroundView = UIImageView (image: UIImage(named: "background"))
-        backgroundView.frame = view.frame
-        backgroundView.contentMode = .scaleAspectFit
-        view.addSubview(backgroundView)
-        view.sendSubviewToBack(backgroundView)
+                
+        self.view.insertSubview(backgroundView, at: 10)
+        NSLayoutConstraint.activate([
+            backgroundView.topAnchor.constraint(equalTo: view.topAnchor),
+            backgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            backgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            backgroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+        //self.view.addSubview(backgroundView)
+        self.view.sendSubviewToBack(backgroundView)
         plateField.text = plateName
         setupMenu(settings, about, contact, howItWorks, shareWith, logout, yesButtonLbl, noButtonLbl, logoutText, userLanguageSelected, plateName, screen: "0")
         
