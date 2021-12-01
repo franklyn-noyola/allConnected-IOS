@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Google
+ * Copyright 2020 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,12 +18,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/**
- *  Represents the action taken on a subscription topic.
- */
-typedef NS_ENUM(NSInteger, FIRMessagingTopicAction) {
-  FIRMessagingTopicActionSubscribe,
-  FIRMessagingTopicActionUnsubscribe
-};
+@protocol FIRAppCheckTokenResultInterop <NSObject>
+
+/// App Check token in the case of success or a dummy token in the case of a failure.
+/// In general, the value of the token should always be set to the request header.
+@property(nonatomic, readonly) NSString *token;
+
+/// A token fetch error in the case of a failure or `nil` in the case of success.
+@property(nonatomic, readonly, nullable) NSError *error;
+
+@end
 
 NS_ASSUME_NONNULL_END
