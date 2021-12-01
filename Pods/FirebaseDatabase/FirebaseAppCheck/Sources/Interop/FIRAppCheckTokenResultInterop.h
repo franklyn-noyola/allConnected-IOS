@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 Google
+ * Copyright 2020 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,18 +16,16 @@
 
 #import <Foundation/Foundation.h>
 
-#import "FIRCoreDiagnosticsData.h"
-
 NS_ASSUME_NONNULL_BEGIN
 
-/** Allows the interoperation of FirebaseCore and FirebaseCoreDiagnostics. */
-@protocol FIRCoreDiagnosticsInterop <NSObject>
+@protocol FIRAppCheckTokenResultInterop <NSObject>
 
-/** Sends the given diagnostics data.
- *
- * @param diagnosticsData The diagnostics data object to send.
- */
-+ (void)sendDiagnosticsData:(id<FIRCoreDiagnosticsData>)diagnosticsData;
+/// App Check token in the case of success or a dummy token in the case of a failure.
+/// In general, the value of the token should always be set to the request header.
+@property(nonatomic, readonly) NSString *token;
+
+/// A token fetch error in the case of a failure or `nil` in the case of success.
+@property(nonatomic, readonly, nullable) NSError *error;
 
 @end
 
