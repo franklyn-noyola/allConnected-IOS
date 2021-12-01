@@ -27,7 +27,7 @@
 		6671F11D26651E0B00A16713 /* listSectionInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6671F11C26651E0B00A16713 /* listSectionInit.swift */; };
 		66C13890265CFBD300015AAC /* settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C1388F265CFBD300015AAC /* settings.swift */; };
 		7C47548826DBE43400483167 /* viewNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47548726DBE43400483167 /* viewNotification.swift */; };
-		7C4EA8F626F7A2FA008F01F4 /* Pods_allConnected.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E3C2D192B8EE7A8638848E1 /* Pods_allConnected.framework */; };
+		7C4EA8F626F7A2FA008F01F4 /* Pods_allConnected.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E3C2D192B8EE7A8638848E1 /* Pods_allConnected.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		7C621CA126D8FFBC00222C64 /* notiListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C621CA026D8FFBC00222C64 /* notiListSection.swift */; };
 		7C621CA326D9092000222C64 /* notiListInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C621CA226D9092000222C64 /* notiListInit.swift */; };
 		7C629C1026DE451E00FBE570 /* sendNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C629C0F26DE451E00FBE570 /* sendNotification.swift */; };
@@ -67,6 +67,7 @@
 		7C629C0F26DE451E00FBE570 /* sendNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sendNotification.swift; sourceTree = "<group>"; };
 		7C64E87426CBCBB8009DB7B8 /* howItWorks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = howItWorks.swift; sourceTree = "<group>"; };
 		7C64E87626CBCC3D009DB7B8 /* howWorksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = howWorksTableViewCell.swift; sourceTree = "<group>"; };
+		7C6532142742AA9300EAB8DB /* Pods */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Pods; sourceTree = "<group>"; };
 		7C6EEE8F26CA8B0E00D247E1 /* About.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = About.swift; sourceTree = "<group>"; };
 		7CE1DC5226E116B500E4A91F /* contactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = contactView.swift; sourceTree = "<group>"; };
 		8F3868B3D21DC04857921F95 /* Pods-allConnected.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-allConnected.debug.xcconfig"; path = "Target Support Files/Pods-allConnected/Pods-allConnected.debug.xcconfig"; sourceTree = "<group>"; };
@@ -152,6 +153,7 @@
 		6A72FE7AB8E319037155CDF5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7C6532142742AA9300EAB8DB /* Pods */,
 				4E3C2D192B8EE7A8638848E1 /* Pods_allConnected.framework */,
 			);
 			name = Frameworks;
@@ -472,6 +474,7 @@
 					"\"${PÒDS_ROOT}/Headers/Public/mailcore2-ios/MailCore\"",
 				);
 				INFOPLIST_FILE = allConnected/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -521,6 +524,7 @@
 					"\"${PÒDS_ROOT}/Headers/Public/mailcore2-ios/MailCore\"",
 				);
 				INFOPLIST_FILE = allConnected/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
