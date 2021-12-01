@@ -1,6 +1,6 @@
 /*************************************************************************
  *
- * Copyright 2016 Realm Inc.
+ * Copyright 2021 Realm Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,29 +16,28 @@
  *
  **************************************************************************/
 
-#ifndef REALM_COLUMN_FWD_HPP
-#define REALM_COLUMN_FWD_HPP
+#pragma once
 
-#include <cstdint>
+#include <realm/string_data.hpp>
 
 namespace realm {
 
-class IntegerColumn;
-class IntegerColumnIterator;
+/*
+ * TODO As part of RCORE-720, we'll move all the exception types and error codes we want to expose in the
+ * public API here so that each one has a unique error code. For now though, this is here to complete the
+ * API of Status/StatusWith.
+ */
+class ErrorCodes {
+public:
+    enum Error : int32_t {
+        OK = 0,
+        UnknownError = 1,
+        RuntimeError = 2,
+        LogicError = 3,
+        BrokenPromise = 4,
+    };
 
-// Templated classes
-template <class T>
-class BPlusTree;
-
-namespace util {
-template <class>
-class Optional;
-}
-
-// Shortcuts, aka typedefs.
-using DoubleColumn = BPlusTree<double>;
-using FloatColumn = BPlusTree<float>;
+    static StringData error_string(Error code);
+};
 
 } // namespace realm
-
-#endif // REALM_COLUMN_FWD_HPP
