@@ -49,8 +49,9 @@ class chatController: UIViewController, UIGestureRecognizerDelegate {
         self.navigationItem.setHidesBackButton(true, animated: true)
         userRef = Database.database().reference()
         changelanguage()
-        title = chat
+        self.navigationItem.title = chat
         configFields()
+        
         listUser.delegate = self
         listUser.dataSource = self
 
@@ -100,6 +101,7 @@ class chatController: UIViewController, UIGestureRecognizerDelegate {
         
     func configFields() {
         searchButton.setTitle(searchUserText, for: UIControl.State.normal)
+        searchButton.layer.cornerRadius = 8
     }
     
     func getUserListData() {
